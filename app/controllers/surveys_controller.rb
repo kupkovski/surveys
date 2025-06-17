@@ -1,6 +1,9 @@
 class SurveysController < ApplicationController
   def index
-    # @surveys = Survey.joins(:answers).group('answers.survey_id').count#.order(created_at: :desc)
     @surveys = Survey.includes(:answers).order(created_at: :desc)
+  end
+
+  def show
+    @survey = Survey.find(params[:id])
   end
 end

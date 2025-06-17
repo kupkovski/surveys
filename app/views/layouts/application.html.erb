@@ -19,6 +19,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container">
+    <nav>
+      <ul>
+        <li><strong><%= link_to "Surveys", root_path %></strong></li>
+      </ul>
+    </nav>
+      <%= yield %>
+    </main>
   </body>
 </html>
