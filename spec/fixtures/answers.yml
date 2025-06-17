@@ -1,0 +1,9 @@
+yes_answer_to_first_survey:
+  value: 1
+  survey: first_survey
+no_answer_to_first_survey:
+  value: 0
+  survey: first_survey
+yes_answer_to_second_survey:
+  value: 1
+  survey: second_survey

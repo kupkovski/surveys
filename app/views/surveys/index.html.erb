@@ -1,0 +1,19 @@
+<main class="container">
+  <h1>Surveys</h1>
+
+    <% @surveys.each do |survey| %>
+    <article>
+      <header>
+        <small><%= l(survey.created_at, format: :short) %></small>
+      </header>
+      <%= survey.question %>
+      <footer>
+        <div class="grid">
+          <div>Total Answers: <%= survey.answers.size %></div>
+          <div>Yes: <%= survey.positive_answers.size %> (<%= (survey.positive_answers_rate * 100).truncate(2) %> %)</div>
+          <div>No: <%= survey.negative_answers.size %> (<%= (survey.negative_answers_rate * 100).truncate(2) %> %)</div>
+        </div>
+      </footer>
+    </article>
+    <% end %>
+</main>

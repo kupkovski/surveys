@@ -1,0 +1,4 @@
+first_survey:
+  question: Did you already answer this very first survey?
+second_survey:
+  question: Have you answered the first survey before getting to this one?
