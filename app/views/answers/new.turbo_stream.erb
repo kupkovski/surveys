@@ -1,0 +1,5 @@
+<%= turbo_stream.update dom_id(@survey) do %>
+  <%= render partial: "answers/form", locals: { answer: @answer } %>
+<% end %>
+
+<%= turbo_stream.remove "answer-link" %>

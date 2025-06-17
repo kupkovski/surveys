@@ -1,0 +1,16 @@
+<div style="border: 1px solid #202632; width: 37%; margin: 10px; padding: 10px">
+   <%= form_with(model: answer, url: [@survey, answer], data: { turbo: false }) do |form| %>
+   <fieldset role="group" style="display: block; margin-bottom: 0">
+    <span style="margin-right: 5em">
+      <%= form.radio_button :value, 1 %>
+      <%= form.label :age_child, "Yes" %>
+    </span>
+    <span style="margin-right: 5em">
+      <%= form.radio_button :value, 0 %>
+      <%= form.label :age_adult, "No" %>
+    </span>
+
+  <%= form.submit "Save" %>
+  </fieldset>
+  <% end %>
+</div>

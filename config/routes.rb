@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   root "surveys#index"
 
   resources :surveys, only: %i[index show] do
+    resources :answers, only: %i[new create]
   end
 end
