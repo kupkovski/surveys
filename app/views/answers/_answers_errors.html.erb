@@ -1,0 +1,7 @@
+<div class="errors-container">
+  <ul>
+    <% @answer.errors.each do |error| %>
+      <li><%= error.attribute.to_s.humanize %>: <%= error.message %></li>
+    <% end %>
+  </ul>
+</div>

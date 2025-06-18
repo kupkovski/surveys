@@ -5,4 +5,7 @@ class Answer < ApplicationRecord
   }.freeze
 
   belongs_to :survey
+
+  validates :value, presence: true
+  validates :value, inclusion: { in: 0..1 }
 end

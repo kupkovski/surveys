@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@survey) do %>
+  <%= render partial: "surveys/answer_link", locals: { survey: @survey } %>
+<% end %>

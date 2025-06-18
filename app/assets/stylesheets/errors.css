@@ -1,0 +1,12 @@
+.errors {
+  background: #72170f;
+  margin-bottom: 5px;
+}
+
+.errors .errors-container {
+  padding: 5px;
+}
+
+.errors ul {
+  margin: 0;
+}

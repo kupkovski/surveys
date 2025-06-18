@@ -5,7 +5,7 @@
       <small><%= l(@survey.created_at, format: :short) %></small>
     </header>
     <%= @survey.question %>
-    <div id="answer-link"><%= link_to "Answer", new_survey_answer_path(@survey), data: { turbo_stream: true } %></div>
+    <div id="answer-link"><%= render partial: "surveys/answer_link", locals: { survey: @survey } %></div>
     <div id="<%= dom_id @survey %>" ></div>
     <footer>
       <div class="grid">
@@ -15,6 +15,3 @@
       </div>
     </footer>
   </article>
-
-
-  <%#= render 'form' %>
