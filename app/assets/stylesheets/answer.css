@@ -1,6 +1,17 @@
 .answer-form-container {
   border: 1px solid #202632;
-  width: 37%;
+  width: fit-content;
   margin: 10px;
   padding: 10px;
+}
+
+.cancel-answer {
+  margin-left: 2em;
+}
+
+a.cancel-answer {
+  text-decoration: none;
+  position: absolute;
+  top: -32px;
+  right: -24px;
 }

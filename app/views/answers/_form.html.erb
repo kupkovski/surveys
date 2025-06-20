@@ -1,20 +1,22 @@
 <div class="answer-form-container">
-
   <div class="errors" id="<%= dom_id(answer)%>_errors">
   </div>
 
-   <%= form_with(model: answer, url: [@survey, answer], data: { turbo: true }) do |form| %>
-   <fieldset role="group" style="display: block; margin-bottom: 0">
-    <span style="margin-right: 5em">
-      <%= form.radio_button :value, 0 %>
-      <%= form.label :value_0, "No" %>
-    </span>
-    <span style="margin-right: 5em">
-      <%= form.radio_button :value, 1 %>
-      <%= form.label :value_1, "Yes" %>
-    </span>
+  <div style="display: flex;   position: relative;">
+    <%= form_with(model: answer, url: [@survey, answer], data: { turbo: true }) do |form| %>
+      <fieldset role="group" style="display: block; margin-bottom: 0">
+        <span style="margin-right: 5em">
+          <%= form.radio_button :value, 0 %>
+          <%= form.label :value_0, "No" %>
+        </span>
+        <span style="margin-right: 1em">
+          <%= form.radio_button :value, 1 %>
+          <%= form.label :value_1, "Yes" %>
+        </span>
+        <%= form.submit "Save" %>
+      </fieldset>
+    <% end %>
 
-  <%= form.submit "Save" %>
-  </fieldset>
-  <% end %>
+    <%= link_to "❌", survey_path(@survey), class: "cancel-answer" %>
+  </div>
 </div>
