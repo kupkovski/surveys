@@ -1,17 +1,34 @@
-  <h1><%= @survey.question.truncate(40) %></h1>
+<h1><%= @survey.question.truncate(40) %></h1>
+<%= turbo_stream_from "total_answers" %>
+<%= turbo_stream_from "positive_answers_rate" %>
+<%= turbo_stream_from "negative_answers_rate" %>
 
-  <article>
-    <header>
-      <small><%= l(@survey.created_at, format: :short) %></small>
-    </header>
-    <%= @survey.question %>
-    <div id="answer-link"><%= render partial: "surveys/answer_link", locals: { survey: @survey } %></div>
-    <div id="<%= dom_id @survey %>" ></div>
-    <footer>
-      <div class="grid">
-        <div>Total Answers: <%= @survey.answers.size %></div>
-        <div>Yes: <%= @survey.positive_answers.size %> (<%= (@survey.positive_answers_rate * 100).truncate(2) %> %)</div>
-        <div>No: <%= @survey.negative_answers.size %> (<%= (@survey.negative_answers_rate * 100).truncate(2) %> %)</div>
+<article>
+  <header>
+    <small><%= l(@survey.created_at, format: :short) %></small>
+  </header>
+  <%= @survey.question %>
+  <div id="answer-link"><%= render partial: "surveys/answer_link", locals: { survey: @survey } %></div>
+  <div id="<%= dom_id @survey %>" ></div>
+  <footer>
+    <div class="grid">
+      <div id="<%= @survey.id %>_total_answers">
+        <%= render partial: "surveys/total_answers", locals: { total_answers: @survey.answers.size } %>
       </div>
-    </footer>
-  </article>
+      <div id="<%= @survey.id %>_positive_answers_rate">
+        <%= render partial: "surveys/positive_answers_rate", locals: {
+          positive_answers_total: @survey.positive_answers.size,
+          positive_answers_rate: @survey.positive_answers_rate
+        } %>
+      </div>
+
+      <div id="<%= @survey.id %>_negative_answers_rate">
+        <%=
+        render partial: "surveys/negative_answers_rate", locals: {
+          negative_answers_total: @survey.negative_answers.size,
+          negative_answers_rate: @survey.negative_answers_rate
+        } %>
+      </div>
+    </div>
+  </footer>
+</article>

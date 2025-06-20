@@ -10,10 +10,10 @@ class Survey < ApplicationRecord
   end
 
   def positive_answers_rate
-    positive_answers.size.to_f / answers.size
+    ((positive_answers.size.to_f / answers.size) * 100).truncate(2)
   end
 
   def negative_answers_rate
-    negative_answers.size.to_f / answers.size
+    ((negative_answers.size.to_f / answers.size)* 100).truncate(2)
   end
 end
