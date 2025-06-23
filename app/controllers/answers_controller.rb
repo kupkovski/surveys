@@ -30,6 +30,8 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:value)
+    # a workaround to prevent getting a non-empty answer object with empty content,
+    # which ends up causing ActionController::ParameterMissing
+    params.fetch(:answer, Hash.new).permit(:value)
   end
 end
