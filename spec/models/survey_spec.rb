@@ -28,20 +28,40 @@ RSpec.describe Survey, type: :model do
   end
 
   describe 'positive_answers_rate' do
-    fixtures :surveys, :answers
-    subject { surveys(:first_survey) }
+    context 'when there are no answers' do
+      subject { Survey.new }
 
-    it 'returns proportion of answers containing YES value' do
-      expect(subject.positive_answers_rate).to eq 50.0 # 50% of answers are YES on the fixtures
+      it 'returns 0' do
+        expect(subject.positive_answers_rate).to eq 0
+      end
+    end
+
+    context 'when there are answers' do
+      fixtures :surveys, :answers
+      subject { surveys(:first_survey) }
+
+      it 'returns proportion of answers containing YES value' do
+        expect(subject.positive_answers_rate).to eq 50.0 # 50% of answers are YES on the fixtures
+      end
     end
   end
 
   describe 'negative_answers_rate' do
-    fixtures :surveys, :answers
-    subject { surveys(:first_survey) }
+    context 'when there are no answers' do
+      subject { Survey.new }
 
-    it 'returns proportion of answers containing NO value' do
-      expect(subject.negative_answers_rate).to eq 50.0 # 50% of answers are NO on the fixtures
+      it 'returns 0' do
+        expect(subject.negative_answers_rate).to eq 0
+      end
+    end
+
+    context 'when there are answers' do
+      fixtures :surveys, :answers
+      subject { surveys(:first_survey) }
+
+      it 'returns proportion of answers containing NO value' do
+        expect(subject.negative_answers_rate).to eq 50.0 # 50% of answers are NO on the fixtures
+      end
     end
   end
 end
