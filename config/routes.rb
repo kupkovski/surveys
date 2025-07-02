@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "surveys#index"
 
-  resources :surveys, only: %i[index show] do
+  resources :surveys, only: %i[index show new create] do
     resources :answers, only: %i[new create]
   end
 end

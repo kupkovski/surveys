@@ -5,6 +5,10 @@ RSpec.describe Survey, type: :model do
     it { should have_many(:answers) }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of(:question) }
+  end
+
   describe 'positive_answers' do
     fixtures :surveys, :answers
     subject { surveys(:first_survey) }

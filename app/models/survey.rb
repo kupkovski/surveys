@@ -1,6 +1,8 @@
 class Survey < ApplicationRecord
   has_many :answers
 
+  validates :question, presence: true
+
   def positive_answers
     @positive_answers ||= answers.where(value: Answer::VALUES[:yes])
   end

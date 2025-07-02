@@ -1,10 +1,10 @@
 <h1>Surveys</h1>
 
-  <% @surveys.each do |survey| %>
+<% @surveys.each do |survey| %>
   <article>
     <div class="grid">
       <small><%= l(survey.created_at, format: :short) %></small>
       <%= link_to survey.question, survey %>
     Total Answers: <%= survey.answers.size %>
   </article>
-  <% end %>
+<% end %>
